@@ -46,14 +46,25 @@ if df is not None:
     st.write(AC.set_index('ID'))
     
     st.write('Spearmans correlation between Mean and the objective value')
-    st.write(stats.spearmanr(AC['Mean'],df.iloc[:,1]))
-    st.write('Spearmans correlation between Std and the objective value')
-    st.write(stats.spearmanr(AC['Std'],df.iloc[:,1]))
-    st.write('Spearmans correlation between AC_Mean and the objective value')
-    st.write(stats.spearmanr(AC['AC_Mean'],df.iloc[:,1]))
-    st.write('Spearmans correlation between AC_Var and the objective value')
-    st.write(stats.spearmanr(AC['AC_Var'],df.iloc[:,1]))
+    r,p=stats.spearmanr(AC['Mean'],df.iloc[:,1])
+    st.write("r: "+str(r))
+    st.write("p: "+str(p))
     
+    st.write('Spearmans correlation between Std and the objective value')
+    r,p=stats.spearmanr(AC['Std'],df.iloc[:,1])
+    st.write("r: "+str(r))
+    st.write("p: "+str(p))
+    
+    st.write('Spearmans correlation between AC_Mean and the objective value')
+    r,p=stats.spearmanr(AC['AC_Mean'],df.iloc[:,1])
+    st.write("r: "+str(r))
+    st.write("p: "+str(p))
+    
+    st.write('Spearmans correlation between AC_Var and the objective value')
+    r,p=stats.spearmanr(AC['AC_Var'],df.iloc[:,1])
+    st.write("r: "+str(r))
+    st.write("p: "+str(p))
+        
     options = ['Not perform a multiple rgression analysis',
                'Perform a multiple rgression analysis with AC_Var',
                'Perform a multiple rgression analysis with AC_Mean']
